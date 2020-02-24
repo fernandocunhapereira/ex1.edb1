@@ -8,17 +8,20 @@ int main(int argc, char *argv[]){
 	size_t tam=0;
 	size_t *v;
 
+	//usa o relogio para de alguma forma gerar numeros aleatorios
 	std::srand(std::time(0));
 	
+	//imprime quantidade de argumentos, e o segundo argumento
 	std::cout<<argc<<" <<< quantidade de argumentos"<<std::endl;
 	std::cout<<argv[1]<<" <<< 2º argumento (tamanho vetor)"<<std::endl;
 
-	//atribui parametro a variavel  de tamanho
+	//atribui o segundo parametro a variavel de tamanho
 	tam=atoi(argv[1]);
 	std::cout<<std::endl;
 		
-	//aloca memoria para vetor (conforme tamanho especificado)
-	v=(size_t*) malloc(tam*sizeof(size_t)); 
+	//aloca memoria para o vetor (conforme variavel tamanho)
+	//v=(size_t*) malloc(tam*sizeof(size_t)); 
+	v= new size_t[tam];
 
 	//preenche vetor com valores aleatorios
 	for(size_t i=0; i<tam; i++){
@@ -51,5 +54,7 @@ int main(int argc, char *argv[]){
 	std::cout<<"^ depois da ordenação"<<std::endl;
 	std::cout<<" "<<std::endl;
 
+	//libera memoria
+	delete v;
 return 0;
 }
